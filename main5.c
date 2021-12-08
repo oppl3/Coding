@@ -22,7 +22,6 @@ bool directoryExists(const char* absolutePath) {
 }
 
 /// Функция осуществляет переход между левым и правым краями поля,
-/// как если бы оно было в форме цилиндра. Возвращает координату.
 
 int xadd(int i, int a, int w) {
     i += a;
@@ -103,7 +102,7 @@ bool game_life(BMPfile* bmp_file, int max_iter, int dump_freq, const char* outpu
 
     /// Подготовка имени, под которым будут сохраняться итерации.
     int count = 0;
-    char fname[100];
+    char test[100];
     int length = sprintf(fname, "%s/", output_dir);
 
     /// Итерации.
@@ -125,8 +124,8 @@ bool game_life(BMPfile* bmp_file, int max_iter, int dump_freq, const char* outpu
         if (i % dump_freq == 0)
         {
             count++;
-            sprintf(fname + length, "%d.bmp", count);
-            if (!saveBMP(bmp_file, fname))
+            sprintf(test + length, "%d.bmp", count);
+            if (!saveBMP(bmp_file, test))
             {
                 for (int i = 0; i < bmp_file->bmpHeader.biHeight; ++i)
                 {
@@ -157,8 +156,8 @@ int main(int argc, char* argv[])
     }
 
     /// считываем входные данные
-    const char* fname = argv[1];
-    if (!fname)
+    const char* test = argv[1];
+    if (!test)
     {
         printf("Wrong: seed file name.\n");
         return -1;
@@ -187,7 +186,7 @@ int main(int argc, char* argv[])
     }
 
     /// Считываем картинку начальной итерации.
-    BMPfile* bmp_file = readBMP(fname);
+    BMPfile* bmp_file = readBMP(test);
     if (bmp_file == NULL)
     {
         return -1;
