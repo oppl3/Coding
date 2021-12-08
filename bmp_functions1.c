@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "bmp_functions.h"
 
-BMPfile* readBMP(const char* fname)
+BMPfile* readBMP(const char* test)
 {
     FILE* file;
     BITMAPFILEHEADER file_header;
@@ -10,7 +10,7 @@ BMPfile* readBMP(const char* fname)
     RGBQUAD* quads = NULL;
 
     /// ��������� ����
-    file = fopen(fname, "rb");
+    file = fopen(test, "rb");
     if (!file)
     {
         printf("Wrong: seed file is not opened.\n");
@@ -134,7 +134,7 @@ BMPfile* readBMP(const char* fname)
 }
 
 /// ������� ��������� ������ ����������� BMP ���� ��� ������ ������ 
-bool saveBMP(BMPfile* bmp_file, const char* fname)
+bool saveBMP(BMPfile* bmp_file, const char* test)
 {
     /// ������� ���� � ��������� � ���� ���, ����� �������� ����, �� ������� �����
     BITMAPFILEHEADER file_header = bmp_file->fileHeader;
@@ -143,7 +143,7 @@ bool saveBMP(BMPfile* bmp_file, const char* fname)
     RGBQUAD* quads = bmp_file->palett;
 
     FILE* file;
-    file = fopen(fname, "wb");
+    file = fopen(test, "wb");
     if (!file)
     {
       //  printf("Wrong: can not save iteration file.\n");
