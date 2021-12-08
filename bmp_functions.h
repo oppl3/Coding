@@ -55,8 +55,8 @@ typedef struct BMPfile
 /// ������� ��������� ����������� bmp ���� � �������� ������ fname
 /// � ��������� BMPfile � ���������� ��������� �� ��.
 /// � ������ ������� ������� ��������� � �������� � ������� � ���������� NULL.
-BMPfile* readBMP(const char* fname);
+BMPfile* readBMP(const char* test);
 
 /// ������� ��������� ������ ����������� BMP ���� ��� ������ ������.
 /// � ������ ������� ������� ��������� � �������� � ������� � ���������� false.
-bool saveBMP(BMPfile* bmp_file, const char* fname);
+bool saveBMP(BMPfile* bmp_file, const char* test);
